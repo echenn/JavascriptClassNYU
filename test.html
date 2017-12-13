@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dog Test</title>
+</head>
+<body>
+<script type="text/javascript">
+
+// function products(name, weight, color, price){
+// 	this.name = name;
+// 	this.weight = weight;
+// 	this.color = color;
+// 	this.price = price;
+
+// }
+
+// function printProducts(){
+// 	var total = 0
+
+// 	var numProducts = prompt("How many products?");
+// 	var name = prompt("What is the product name?");
+// 	var weight = prompt("What is the weight?");
+// 	var color = prompt("What is the color?");
+// 	var price = prompt("What is the price?");
+
+// 	var prod = new products(name,weight,color,price);
+// 	var total = numProducts * price
+
+
+// 	document.write(numProducts + " of " + prod.name + " at " + prod.price + " will cost you " + total)
+// }
+
+function blackJack(){
+	var dealer = Math.floor(Math.random()*21 + 2)
+	var userTotal = 0;
+	var hit = 'y'
+	while(hit == 'y'){
+		userTotal += Math.floor(Math.random()*10 + 1)
+		var hit = prompt("Do you want anothercard? y or n?")
+		document.write("Your total is " + userTotal)
+		if(userTotal >= 21){
+			break
+		}
+		
+	}
+
+	if(userTotal > 21)
+			document.write(" YOU LOSE ")
+	else {
+		if (userTotal > dealer){
+			document.write(" YOU WIN " + userTotal + " is greater than " + dealer)
+
+		}
+		else if(userTotal < dealer) {
+			docment.write(" YOU LOSE " + dealer + " is greater than " + userTotal)
+		}
+		else {
+			document.write(" YOU TIE ")
+		}
+	}
+}	
+
+function UserHand(){
+	this.handTotal = 0;
+
+	this.getCard = function(){
+		var hit = 'y'
+		while(hit == 'y'){
+			var hit = prompt("Do you want anothercard? y or n?")
+			this.handTotal = this.handTotal + Math.floor(Math.random()*10 + 2)
+			document.getElementById("userID").innerHTML= "Your total is " + this.handTotal.toString();
+			if(this.handTotal > 21){
+				alert("YOU LOSE!")
+				var p = prompt("Want to play Again? y or n?")
+				if(p == y){
+					this.playAgain();
+				}
+			}
+		}
+
+		var p = prompt("Want to play Again? y or n?")
+		if(p == y){
+			this.playAgain();
+		}
+	}
+
+	this.playAgain = function(){
+		this.handTotal = 0;
+		this.getCard();
+	}
+}
+
+function dealerHand(){
+	this.handTotal = Math.floor(Math.random()*21 + 2);
+	document.getElementById("DealerId").innerHTML = "Dealer's total is " + this.handTotal.toString();
+}
+
+
+
+function playBlackJack(){
+	var dealer = new dealerHand();
+	var user = new UserHand();
+	var exdate = new Date();
+	exdate.setDate(exdate.getDate() + 365); 
+	document.cookie = "BJCookie =" + document.getElementById("userName").value +";expires="+exdate.toUTCString();
+	user.getCard();
+
+
+}
+	
+</script>
+
+<form>
+	<input type="text" name="FirstName" id="userName"> <br>
+	<input type="button" name="sumbit" onclick="playBlackJack()" value ="submit"> <br>
+</form>
+
+<p id="userID">
+
+</p>
+<p id="DealerId">
+</p>
+</body>
+</html>

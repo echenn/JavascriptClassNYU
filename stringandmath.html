@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Strings and Math</title>
+</head>
+<body>
+<script type="text/javascript">
+	function lookingforP(){
+		var str = "Peter picked a pretty pumpkin to present to the princess."
+		var count = 0;
+		for( var i = 0; i < str.length; i++) {
+			if(str[i] == 'p')
+				count = count + 1;
+		}
+
+		document.write(str + " has " + count + " p's!")
+		var replacedString = str.replace("pumpkin", "platitude")
+		document.write(replacedString)
+	}
+
+	function getSquareRoot(){
+		var sqRoot = prompt("Please enter a number")
+		document.write(Math.sqrt(sqRoot))
+		return Math.sqrt(sqRoot)
+		
+	}
+	function createEmail(){
+		var newemail;
+		var num = Math.floor(Math.random() * 255) + 100
+		newemail = "ec" + num.toString() + "@nyu.edu"
+		document.write(newemail)
+	}
+</script>
+<button onclick="lookingforP()">Get P's</button>
+<button onclick="getSquareRoot()">Square Root</button>
+<button onclick="createEmail()">New Email</button>
+
+</body>
+</html>

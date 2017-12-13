@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cookies</title>
+</head>
+<body>
+<script type="text/javascript">
+	function getFavoriteColor(){
+		color = document.getElementById("colorID").value
+		document.cookie = ("favoriteColor = " + color + "expires=1540734378924")
+		if (color == "blue" || color == "Blue"){
+			alert("We both have the same favorite color :D")
+		}
+	}
+</script>
+<form>
+What is your favorite color?<br>
+<input type="text" id="colorID">  </input>
+<input type="button" value="submit" onclick="getFavoriteColor()">  </input>
+</form>
+
+</body>
+</html>

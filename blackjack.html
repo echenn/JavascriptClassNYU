@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blackjack</title>
+</head>
+<body>
+<script type="text/javascript">
+
+function UserHand(){
+	this.handTotal = 0;
+
+	this.getCard = function(){
+		var hit = 'y'
+		while(hit == 'y'){
+			var hit = prompt("Your total is " + this.handTotal + ". Do you want anothercard? y or n?")
+			document.getElementById("userID").innerHTML= "Your total is " + this.handTotal;
+			this.handTotal = this.handTotal + Math.floor(Math.random()*10 + 2)
+			if(this.handTotal > 21){
+				alert("YOU LOSE!")
+				var p = prompt("Want to play Again? y or n?")
+				if(p == y){
+					this.playAgain();
+				}
+			}
+		}
+
+		var p = prompt("Want to play Again? y or n?")
+		if(p == "y"){
+			this.playAgain();
+		}
+	}
+
+	this.playAgain = function(){
+		this.handTotal = 0;
+		this.getCard();
+	}
+}
+
+function dealerHand(){
+	this.handTotal = Math.floor(Math.random()*21 + 2);
+	document.getElementById("DealerId").innerHTML = "Dealer's total is " + this.handTotal.toString();
+}
+
+
+
+function playBlackJack(){
+	var dealer = new dealerHand();
+	var user = new UserHand();
+	var exdate = new Date();
+	exdate.setDate(exdate.getDate() + 365); 
+	document.cookie = "BJCookie =" + document.getElementById("userName").value +";expires="+exdate.toUTCString();
+	user.getCard();
+}
+	
+</script>
+
+<form>
+	<input type="text" name="FirstName" id="userName"> <br>
+	<input type="button" name="sumbit" onclick="playBlackJack()" value ="submit"> <br>
+</form>
+
+<p id="userID">
+
+</p>
+<p id="DealerId">
+</p>
+</body>
+</html>

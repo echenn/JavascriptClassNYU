@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<h1>Need weather suggestions? Enter the temperature and press the button!</h1>
+	<title>Eric's Weather App</title>
+
+
+</head>
+<body>
+	<script type="text/javascript">
+		function weatherAlert(temp)
+		{
+			if(temp >= 90) 
+			{
+				alert("HEAT ADVISORY It's Hot outside!!")
+			}
+			else if (temp >= 80 && temp < 90)
+			{
+				alert("Still a bit hot!")
+			}
+			else if (temp >= 60 && temp < 80)
+			{
+				alert("Its getting colder :( Better enjoy the warmth while it lasts!!")
+			}
+			else if (temp >= 50 && temp < 60)
+			{
+				alert("Go and grab that hoodie!")
+			}
+			else if (temp >= 40 &&  temp < 50)
+			{
+				alert("We may need a winter jacket")
+			}
+			else if (temp >= 0 && temp < 40)
+			{
+				alert("Wayyy too cold go back inside!")
+			}
+			else
+			{
+				alert("OUT OF RANGE")
+			}
+		}
+		
+	</script>
+	
+	<input type="text" id="tempBox"></input>
+	<button onclick="weatherAlert(document.getElementById('tempBox').value)">
+		Click for Weather Alerts
+	</button>
+
+</body>
+</html>

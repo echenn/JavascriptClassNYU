@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book</title>
+	Book
+</head>
+<body>
+<script type="text/javascript">
+	function bookConstructor(title, author, edition, publishDate, pages){
+		this.title = title;
+		this.author = author;
+		this.edition = edition;
+		this.publishDate = publishDate;
+		this.pages = pages;
+
+		this.addToArray = function() {
+			bookArray.push(this);
+			for (var prop in bookArray) {
+				document.write(bookArray[prop]);
+			}
+		}
+		this.addToArray();
+
+		this.checkArray() = function(){
+			if(this.title == "javascript"){
+				alert("Yayy special message")
+			}
+		}
+
+		this.checkArray();
+	}
+</script>
+</body>
+</html>

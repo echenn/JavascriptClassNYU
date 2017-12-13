@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator 1.0</title>
+	This is my Calculator
+</head>
+<body>
+<script type="text/javascript">
+	function calculate(){
+		var num1 = Number(prompt("Please enter a number"));
+		var num2 = Number(prompt("Please enter a second number"))
+
+		var operation = prompt("What would you like to do? (add, multiply, subtract, divide)")
+		if(operation == 'add') {
+			document.write(num1 + num2)
+		}
+		else if (operation == "subtract"){
+			document.write(num1 - num2)
+		}
+		else if (operation == "divide"){
+			document.write(num1 / num2)
+		}
+		else if (operation == "multiply"){
+			document.write(num1 * num2)
+		}
+	}
+</script>
+<button onclick="calculate()">click me!</button>
+</body>
+</html>
