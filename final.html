@@ -13,35 +13,31 @@
 		
 		var RestaurantArray = [mcDonalds, joesPizza, halalGuys, boka, Baohaus];
 
-		function Restaurant(restaurantName, menu){
-			this.name = restaurantName;
-			this.menu = menu;
+		function Restaurant(RestaurantName, Menu){
+			this.name = RestaurantName;
+			this.menu = Menu;
 
 			this.getItemRating = function(foodName) {
 				if(foodName in this.menu){
 					document.getElementById("FoodReview").innerHTML = foodName + " has a rating of " + this.menu[foodName]
 				}
 				else {
-					document.getElementById("FoodReview").innerHTML = "Food item cannot be found";
+					document.getElementById("FoodReview").innerHTML = "Cannot be found";
 				}
 			}
 		}
 		function getMenuRating(){
-			//console.log(mcDonalds.menu["McChicken"])
 			var i = 0;
 			var restaurantName = document.getElementById('restaurantName').value;
 			var menuItem = document.getElementById('menuItem').value;
-			console.log("Hello")
+
 			for(i; i < RestaurantArray.length; i++){
-				console.log(RestaurantArray[i].name)
-				console.log(restaurantName)
-				if(RestaurantArray[i].name === restaurantName){	
+				if(restaurantName == RestaurantArray[i].name){
 					RestaurantArray[i].getItemRating(menuItem)
-					break;
 				}
 			}
 			if (i == RestaurantArray.length){
-				document.getElementById("FoodReview").innerHTML = "Restaurant cannot be found";
+				document.getElementById("FoodReview").innerHTML = "Cannot be found";
 			}
 		}
 	</script>
